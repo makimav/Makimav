@@ -335,7 +335,6 @@
 .banner:where(.astro-BCR4GW6E) {
   margin: -1rem -1rem 1rem;
   max-width: calc(100% + 2rem);
-  background-image: url('/img/banner.png');
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
@@ -946,16 +945,26 @@ border: 5px solid skyblue;
 border-image: linear-gradient(#e73512, #eb8f0e);
 border-image-slice: 1;
 }
-</style></head>
+</style>
+<script>
+window.addEventListener("DOMContentLoaded", async () => {
+  var user = await fetch("https://discordlookup.mesalytic.moe/v1/user/281491756565135362").then(res => res.json());
+  document.querySelector("#avatar").src = user.avatar.link;
+  document.querySelector("#banner").style.backgroundImage = `url("${user.banner.link}")`;
+  document.querySelector("#globalName").innerText = user.globalName;
+  document.querySelector("#username").innerText = user.username;
+});
+</script>
+</head>
 <body>
 <div class="flex astro-G3JJ5IRR card astro-5DD63B5N gradients" style="--gap: 0rem;">
 <div class="top-section astro-QLFJKSAO">
 <header class="astro-QLFJKSAO">
 <div class="upper astro-BCR4GW6E" style="--color: #d0cdc3;">
-<div class="banners banner astro-BCR4GW6E"></div>
+<div class="banners banner astro-BCR4GW6E" id="banner"></div>
 </div></header>
 <div class="relative stick astro-DTRUHEB4 astro-IL4YI767">
-<img class="avatars avatar levitate astro-DTRUHEB4 astro-IUSYWDOF" alt="Avatar" src="/img/avatar.png" loading="lazy" decoding="async">
+<img class="avatars avatar levitate astro-DTRUHEB4 astro-IUSYWDOF" alt="Avatar" id="avatar" loading="lazy" decoding="async">
 <img class="decoration" src="/img/1.png">
 <div class="flex astro-G3JJ5IRR status levitate astro-DTRUHEB4" style="--justify: flex-end;--align: flex-end;--gap: 0rem;"></div>
 <div class="badge-wrapper badges astro-DTRUHEB4 astro-P646MY2Q">
@@ -970,8 +979,8 @@ border-image-slice: 1;
 <div class="space astro-5XRSOXPC" style="--space: 4.75rem;"></div></div>
 <div class="card astro-HSVMXAXI">
 <div class="info astro-PUDIKQXY">
-<div class="nickname astro-PUDIKQXY">! Makima</div>
-<div class="username astro-PUDIKQXY">makimav</div>
+<div class="nickname astro-PUDIKQXY" id="globalName"></div>
+<div class="username astro-PUDIKQXY" id="username"></div>
 </div>
 <hr class="divider astro-VXJCJ4QH" style="--top: 1rem;--bottom: 0rem;">
 <div class="scrollbar astro-UOIGRB3U">
