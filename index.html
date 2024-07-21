@@ -1,5 +1,4 @@
 <html lang="ru"><head>
-<title>Makima</title>
 <meta charset="utf-8">
 <meta property="og:locale" content="ru_RU">
 <meta property="og:type" content="website">
@@ -950,9 +949,19 @@ border-image-slice: 1;
 window.addEventListener("DOMContentLoaded", async () => {
   var user = await fetch("https://discordlookup.mesalytic.moe/v1/user/281491756565135362").then(res => res.json());
   document.querySelector("#avatar").src = user.avatar.link;
+  document.querySelector("#decoration").src = `https://cdn.discordapp.com/avatar-decoration-presets/${user.avatar_decoration.asset}.png`;
   document.querySelector("#banner").style.backgroundImage = `url("${user.banner.link}")`;
-  document.querySelector("#globalName").innerText = user.globalName;
+  document.querySelector("#globalName").innerText = user.global_name;
+  document.title = user.global_name;
   document.querySelector("#username").innerText = user.username;
+  document.querySelector("#badges").innerHTML = user.badges.map(badge => {
+    if (badge == "HOUSE_BRAVERY") {
+      return `<div class="tooltip-wrapper astro-35ZD7XM4 astro-M2P5XHDA"><div class="tooltip-content astro-M2P5XHDA"><div class="tooltip astro-M2P5XHDA" role="tooltip">HypeSquad Bravery</div><div class="arrow astro-M2P5XHDA"></div></div><img src="https://cdn.discordapp.com/badge-icons/8a88d63823d8a71cd5e390baa45efa02.png" class="badge astro-35ZD7XM4"></div>`;
+    }
+    if (badge == "ACTIVE_DEVELOPER") {
+      return `<div class="tooltip-wrapper astro-35ZD7XM4 astro-M2P5XHDA"><div class="tooltip-content astro-M2P5XHDA"><div class="tooltip astro-M2P5XHDA" role="tooltip">Active Developer</div><div class="arrow astro-M2P5XHDA"></div></div><img src="https://cdn.discordapp.com/badge-icons/6bdc42827a38498929a4920da12695d9.png" class="badge astro-35ZD7XM4"></div>`;
+    }
+  }).join("\n");
 });
 </script>
 </head>
@@ -965,11 +974,10 @@ window.addEventListener("DOMContentLoaded", async () => {
 </div></header>
 <div class="relative stick astro-DTRUHEB4 astro-IL4YI767">
 <img class="avatars avatar levitate astro-DTRUHEB4 astro-IUSYWDOF" alt="Avatar" id="avatar" loading="lazy" decoding="async">
-<img class="decoration" src="/img/1.png">
+<img class="decoration" id="decoration">
 <div class="flex astro-G3JJ5IRR status levitate astro-DTRUHEB4" style="--justify: flex-end;--align: flex-end;--gap: 0rem;"></div>
 <div class="badge-wrapper badges astro-DTRUHEB4 astro-P646MY2Q">
-<div class="tooltip-wrapper astro-35ZD7XM4 astro-M2P5XHDA"><div class="tooltip-content astro-M2P5XHDA"><div class="tooltip astro-M2P5XHDA" role="tooltip">HypeSquad Bravery</div><div class="arrow astro-M2P5XHDA"></div></div><img src="https://cdn.discordapp.com/badge-icons/8a88d63823d8a71cd5e390baa45efa02.png" class="badge astro-35ZD7XM4"></div>
-<div class="tooltip-wrapper astro-35ZD7XM4 astro-M2P5XHDA"><div class="tooltip-content astro-M2P5XHDA"><div class="tooltip astro-M2P5XHDA" role="tooltip">Active Developer</div><div class="arrow astro-M2P5XHDA"></div></div><img src="https://cdn.discordapp.com/badge-icons/6bdc42827a38498929a4920da12695d9.png" class="badge astro-35ZD7XM4"></div>
+<div id="badges"></div>
 <div class="tooltip-wrapper astro-35ZD7XM4 astro-M2P5XHDA"><div class="tooltip-content astro-M2P5XHDA"><div class="tooltip astro-M2P5XHDA" role="tooltip">Subscriber since Oct 9, 2023</div><div class="arrow astro-M2P5XHDA"></div></div><img src="https://cdn.discordapp.com/badge-icons/2ba85e8026a8614b640c2837bcdfe21b.png" class="badge astro-35ZD7XM4"></div>
 <div class="tooltip-wrapper astro-35ZD7XM4 astro-M2P5XHDA"><div class="tooltip-content astro-M2P5XHDA"><div class="tooltip astro-M2P5XHDA" role="tooltip">Server boosting since Oct 9, 2023</div><div class="arrow astro-M2P5XHDA"></div></div><img src="https://cdn.discordapp.com/badge-icons/996b3e870e8a22ce519b3a50e6bdd52f.png" class="badge astro-35ZD7XM4"></div>
 <div class="tooltip-wrapper astro-35ZD7XM4 astro-M2P5XHDA"><div class="tooltip-content astro-M2P5XHDA"><div class="tooltip astro-M2P5XHDA" role="tooltip">Originally known as Makima#2025</div><div class="arrow astro-M2P5XHDA"></div></div><img src="https://cdn.discordapp.com/badge-icons/6de6d34650760ba5551a79732e98ed60.png" class="badge astro-35ZD7XM4"></div>
