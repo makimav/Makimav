@@ -954,7 +954,7 @@ window.addEventListener("DOMContentLoaded", async () => {
   document.querySelector("#globalName").innerText = user.global_name;
   document.title = user.global_name;
   document.querySelector("#username").innerText = user.username;
-  document.querySelector("#badges").innerHTML = user.badges.map(badge => {
+  document.querySelector("#badges").outerHTML = user.badges.map(badge => {
     if (badge == "HOUSE_BRAVERY") {
       return `<div class="tooltip-wrapper astro-35ZD7XM4 astro-M2P5XHDA"><div class="tooltip-content astro-M2P5XHDA"><div class="tooltip astro-M2P5XHDA" role="tooltip">HypeSquad Bravery</div><div class="arrow astro-M2P5XHDA"></div></div><img src="https://cdn.discordapp.com/badge-icons/8a88d63823d8a71cd5e390baa45efa02.png" class="badge astro-35ZD7XM4"></div>`;
     }
