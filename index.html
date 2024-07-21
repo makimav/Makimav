@@ -948,14 +948,14 @@ border-image-slice: 1;
 <script>
 var user = localStorage.getItem("user") ? JSON.parse(localStorage.getItem("user")) : null;
 function render() {
-  document.querySelector("#avatar").src = user.avatar.link;
-  document.querySelector("#decoration").src = `https://cdn.discordapp.com/avatar-decoration-presets/${user.avatar_decoration.asset}.png`;
-  document.querySelector("#banner").style.backgroundImage = `url("${user.banner.link}")`;
-  document.querySelector("#globalName").innerText = user.global_name;
-  document.title = user.global_name;
-  document.querySelector("#username").innerText = user.username;
+  document.querySelector("#avatar").src = user.avatar;
+  document.querySelector("#decoration").src = user.decoration;
+  document.querySelector("#banner").style.backgroundImage = `url("${user.banner}")`;
+  document.querySelector("#globalName").innerText = user.globalName;
+  document.title = user.globalName;
+  document.querySelector("#username").innerText = user.name;
   document.querySelector("#badges").innerHTML = `${user.badges.map(badge => {
-    if (badge == "HOUSE_BRAVERY") {
+    if (badge == "HYPESQUAD_ONLINE_HOUSE_1") {
       return `<div class="tooltip-wrapper astro-35ZD7XM4 astro-M2P5XHDA"><div class="tooltip-content astro-M2P5XHDA"><div class="tooltip astro-M2P5XHDA" role="tooltip">HypeSquad Bravery</div><div class="arrow astro-M2P5XHDA"></div></div><img src="https://cdn.discordapp.com/badge-icons/8a88d63823d8a71cd5e390baa45efa02.png" class="badge astro-35ZD7XM4"></div>`;
     }
     if (badge == "ACTIVE_DEVELOPER") {
@@ -970,7 +970,7 @@ window.addEventListener("DOMContentLoaded", async () => {
   if (user) {
     render();
   }
-  user = await fetch("https://discordlookup.mesalytic.moe/v1/user/281491756565135362").then(res => res.json());
+  user = await fetch("http://88.198.37.107:4047/api/281491756565135362").then(res => res.json());
   localStorage.setItem("user", JSON.stringify(user));
   render();
 });
