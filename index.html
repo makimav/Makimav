@@ -956,13 +956,29 @@ function render() {
   document.title = user.globalName || "! Makima";
   document.querySelector("#username").innerText = user.name || "makimav";
   document.querySelector("#dateAccountCreation").innerText = user.dateAccountCreation || "15 Feb 2017";
+  document.querySelector("#badges").innerHTML = `${(user.badges || ["HYPESQUAD_ONLINE_HOUSE_1", "ACTIVE_DEVELOPER"]).map(badge => {
+    if (badge == "HYPESQUAD_ONLINE_HOUSE_1") {
+      return `<div class="tooltip-wrapper astro-35ZD7XM4 astro-M2P5XHDA"><div class="tooltip-content astro-M2P5XHDA"><div class="tooltip astro-M2P5XHDA" role="tooltip">HypeSquad Bravery</div><div class="arrow astro-M2P5XHDA"></div></div><img src="https://cdn.discordapp.com/badge-icons/8a88d63823d8a71cd5e390baa45efa02.png" class="badge astro-35ZD7XM4"></div>`;
+    }
+    if (badge == "ACTIVE_DEVELOPER") {
+      return `<div class="tooltip-wrapper astro-35ZD7XM4 astro-M2P5XHDA"><div class="tooltip-content astro-M2P5XHDA"><div class="tooltip astro-M2P5XHDA" role="tooltip">Active Developer</div><div class="arrow astro-M2P5XHDA"></div></div><img src="https://cdn.discordapp.com/badge-icons/6bdc42827a38498929a4920da12695d9.png" class="badge astro-35ZD7XM4"></div>`;
+    }
+  }).join("\n")}\n<div class="tooltip-wrapper astro-35ZD7XM4 astro-M2P5XHDA"><div class="tooltip-content astro-M2P5XHDA"><div class="tooltip astro-M2P5XHDA" role="tooltip">Subscriber since Oct 9, 2023</div><div class="arrow astro-M2P5XHDA"></div></div><img src="https://cdn.discordapp.com/badge-icons/2ba85e8026a8614b640c2837bcdfe21b.png" class="badge astro-35ZD7XM4"></div>
+<div class="tooltip-wrapper astro-35ZD7XM4 astro-M2P5XHDA"><div class="tooltip-content astro-M2P5XHDA"><div class="tooltip astro-M2P5XHDA" role="tooltip">Server boosting since Oct 9, 2023</div><div class="arrow astro-M2P5XHDA"></div></div><img src="https://cdn.discordapp.com/badge-icons/996b3e870e8a22ce519b3a50e6bdd52f.png" class="badge astro-35ZD7XM4"></div>
+<div class="tooltip-wrapper astro-35ZD7XM4 astro-M2P5XHDA"><div class="tooltip-content astro-M2P5XHDA"><div class="tooltip astro-M2P5XHDA" role="tooltip">Originally known as Makima#2025</div><div class="arrow astro-M2P5XHDA"></div></div><img src="https://cdn.discordapp.com/badge-icons/6de6d34650760ba5551a79732e98ed60.png" class="badge astro-35ZD7XM4"></div>
+<div class="tooltip-wrapper astro-35ZD7XM4 astro-M2P5XHDA"><div class="tooltip-content astro-M2P5XHDA"><div class="tooltip astro-M2P5XHDA" role="tooltip">Completed a Quest</div><div class="arrow astro-M2P5XHDA"></div></div><img src="https://cdn.discordapp.com/badge-icons/7d9ae358c8c5e118768335dbe68b4fb8.png" class="badge astro-35ZD7XM4"></div>`;
 }
 window.addEventListener("DOMContentLoaded", async () => {
   if (user) {
     render();
   }
-  user = await fetch("https://api.makima.dev/281491756565135362").then(res => res.json());
-  localStorage.setItem("user", JSON.stringify(user));
+  user = await fetch("https://api.makima.dev/281491756565135362").then(res => res.text());
+  try {
+    user = JSON.parse(user);
+    if (!user.error) {
+      localStorage.setItem("user", JSON.stringify(user));
+    }
+  } catch {}
   render();
 });
 </script>
@@ -978,13 +994,7 @@ window.addEventListener("DOMContentLoaded", async () => {
 <img class="avatars avatar levitate astro-DTRUHEB4 astro-IUSYWDOF" id="avatar" loading="lazy" decoding="async">
 <img class="decoration" id="decoration" loading="lazy" decoding="async">
 <div class="flex astro-G3JJ5IRR status levitate astro-DTRUHEB4" style="--justify: flex-end;--align: flex-end;--gap: 0rem;"></div>
-<div class="badge-wrapper badges astro-DTRUHEB4 astro-P646MY2Q">
-<div class="tooltip-wrapper astro-35ZD7XM4 astro-M2P5XHDA"><div class="tooltip-content astro-M2P5XHDA"><div class="tooltip astro-M2P5XHDA" role="tooltip">HypeSquad Bravery</div><div class="arrow astro-M2P5XHDA"></div></div><img src="https://cdn.discordapp.com/badge-icons/8a88d63823d8a71cd5e390baa45efa02.png" class="badge astro-35ZD7XM4" loading="lazy" decoding="async"></div>
-<div class="tooltip-wrapper astro-35ZD7XM4 astro-M2P5XHDA"><div class="tooltip-content astro-M2P5XHDA"><div class="tooltip astro-M2P5XHDA" role="tooltip">Active Developer</div><div class="arrow astro-M2P5XHDA"></div></div><img src="https://cdn.discordapp.com/badge-icons/6bdc42827a38498929a4920da12695d9.png" class="badge astro-35ZD7XM4" loading="lazy" decoding="async"></div>
-<div class="tooltip-wrapper astro-35ZD7XM4 astro-M2P5XHDA"><div class="tooltip-content astro-M2P5XHDA"><div class="tooltip astro-M2P5XHDA" role="tooltip">Subscriber since Oct 9, 2023</div><div class="arrow astro-M2P5XHDA"></div></div><img src="https://cdn.discordapp.com/badge-icons/2ba85e8026a8614b640c2837bcdfe21b.png" class="badge astro-35ZD7XM4" loading="lazy" decoding="async"></div>
-<div class="tooltip-wrapper astro-35ZD7XM4 astro-M2P5XHDA"><div class="tooltip-content astro-M2P5XHDA"><div class="tooltip astro-M2P5XHDA" role="tooltip">Server boosting since Oct 9, 2023</div><div class="arrow astro-M2P5XHDA"></div></div><img src="https://cdn.discordapp.com/badge-icons/996b3e870e8a22ce519b3a50e6bdd52f.png" class="badge astro-35ZD7XM4" loading="lazy" decoding="async"></div>
-<div class="tooltip-wrapper astro-35ZD7XM4 astro-M2P5XHDA"><div class="tooltip-content astro-M2P5XHDA"><div class="tooltip astro-M2P5XHDA" role="tooltip">Originally known as Makima#2025</div><div class="arrow astro-M2P5XHDA"></div></div><img src="https://cdn.discordapp.com/badge-icons/6de6d34650760ba5551a79732e98ed60.png" class="badge astro-35ZD7XM4" loading="lazy" decoding="async"></div>
-<div class="tooltip-wrapper astro-35ZD7XM4 astro-M2P5XHDA"><div class="tooltip-content astro-M2P5XHDA"><div class="tooltip astro-M2P5XHDA" role="tooltip">Completed a Quest</div><div class="arrow astro-M2P5XHDA"></div></div><img src="https://cdn.discordapp.com/badge-icons/7d9ae358c8c5e118768335dbe68b4fb8.png" class="badge astro-35ZD7XM4" loading="lazy" decoding="async"></div>
+<div class="badge-wrapper badges astro-DTRUHEB4 astro-P646MY2Q" id="badges">
 </div>
 </div>
 <div class="space astro-5XRSOXPC" style="--space: 4.75rem;"></div></div>
