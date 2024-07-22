@@ -952,9 +952,9 @@ function render() {
   document.querySelector("#avatar").src = user.avatar;
   document.querySelector("#decoration").src = user.decoration;
   document.querySelector("#banner").src = user.banner;
-  document.querySelector("#globalName").innerText = user.globalName;
-  document.title = user.globalName;
-  document.querySelector("#username").innerText = user.name;
+  document.querySelector("#globalName").innerText = user.globalName || "! Makima";
+  document.title = user.globalName || "! Makima";
+  document.querySelector("#username").innerText = user.name || "makimav";
   document.querySelector("#badges").innerHTML = `${user.badges.map(badge => {
     if (badge == "HYPESQUAD_ONLINE_HOUSE_1") {
       return `<div class="tooltip-wrapper astro-35ZD7XM4 astro-M2P5XHDA"><div class="tooltip-content astro-M2P5XHDA"><div class="tooltip astro-M2P5XHDA" role="tooltip">HypeSquad Bravery</div><div class="arrow astro-M2P5XHDA"></div></div><img src="https://cdn.discordapp.com/badge-icons/8a88d63823d8a71cd5e390baa45efa02.png" class="badge astro-35ZD7XM4"></div>`;
@@ -986,7 +986,7 @@ window.addEventListener("DOMContentLoaded", async () => {
 </div></header>
 <div class="relative stick astro-DTRUHEB4 astro-IL4YI767">
 <img class="avatars avatar levitate astro-DTRUHEB4 astro-IUSYWDOF" alt="Avatar" id="avatar" loading="lazy" decoding="async" onerror="this.src = '/img/avatar.png';">
-<img class="decoration" id="decoration">
+<img class="decoration" id="decoration" onerror="this.src = '/img/1.png';">
 <div class="flex astro-G3JJ5IRR status levitate astro-DTRUHEB4" style="--justify: flex-end;--align: flex-end;--gap: 0rem;"></div>
 <div class="badge-wrapper badges astro-DTRUHEB4 astro-P646MY2Q" id="badges"></div>
 </div>
