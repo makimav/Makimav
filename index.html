@@ -955,6 +955,7 @@ function render() {
   document.querySelector("#globalName").innerText = user.globalName || "! Makima";
   document.title = user.globalName || "! Makima";
   document.querySelector("#username").innerText = user.name || "makimav";
+  document.querySelector("#dateAccountCreation").innerText = user.dateAccountCreation || "15 Feb 2017";
   document.querySelector("#badges").innerHTML = `${user.badges.map(badge => {
     if (badge == "HYPESQUAD_ONLINE_HOUSE_1") {
       return `<div class="tooltip-wrapper astro-35ZD7XM4 astro-M2P5XHDA"><div class="tooltip-content astro-M2P5XHDA"><div class="tooltip astro-M2P5XHDA" role="tooltip">HypeSquad Bravery</div><div class="arrow astro-M2P5XHDA"></div></div><img src="https://cdn.discordapp.com/badge-icons/8a88d63823d8a71cd5e390baa45efa02.png" class="badge astro-35ZD7XM4"></div>`;
@@ -1000,7 +1001,7 @@ window.addEventListener("DOMContentLoaded", async () => {
 <div class="scrollbar astro-UOIGRB3U">
 <div class="offset astro-UOIGRB3U">
 <section class="section astro-5V3L7MEG"><h4 class="label astro-5V3L7MEG">About Me</h4><main class="normalize"><b>Genshin impact: 722547912 (Сервер Европа)<br>Если есть вопросы, идеи или нужна помощь тогда пиши сюда: <span class="code"><a href="mailto:1@makima.dev" style="text-decoration: none;">1@makima.dev</a></span><br>Поддержка бота Makima: <a style="color: #00AAFC;text-decoration: none;" target="_blank" href="https://discord.gg/y3ysghwa7X">https://discord.gg/y3ysghwa7X</a><br>Поддержка бота OpenAI: <a style="color: #00AAFC;text-decoration: none;" target="_blank" href="https://discord.gg/32DHzrSb6w">https://discord.gg/32DHzrSb6w</a><br>Пожертвование в USDT или MATIC: <span class="code">0x4965A45a9De918fF1Cd2AfC72b4aCDC64172315c</span></b></main></section></div>
-<section class="section astro-5V3L7MEG"><h4 class="label astro-5V3L7MEG">Discord Member Since</h4>15 Feb 2017</section>
+<section class="section astro-5V3L7MEG"><h4 class="label astro-5V3L7MEG">Discord Member Since</h4><a id="dateAccountCreation"></a></section>
 <hr class="divider astro-VXJCJ4QH" style="--top: 0rem;--bottom: 0.75rem;margin-right: 12px;">
 <div class="grid astro-S2F4MTJ7" style="margin-right: 12px;margin-bottom: 12px;">
 
