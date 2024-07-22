@@ -949,9 +949,9 @@ border-image-slice: 1;
 <script>
 var user = localStorage.getItem("user") ? JSON.parse(localStorage.getItem("user")) : null;
 function render() {
-  document.querySelector("#avatar").src = user.avatar;
-  document.querySelector("#decoration").src = user.decoration;
-  document.querySelector("#banner").src = user.banner;
+  document.querySelector("#avatar").src = user.avatar || "/img/avatar.png";
+  document.querySelector("#decoration").src = user.decoration || "/img/1.png";
+  document.querySelector("#banner").src = user.banner || "/img/banner.png";
   document.querySelector("#globalName").innerText = user.globalName || "! Makima";
   document.title = user.globalName || "! Makima";
   document.querySelector("#username").innerText = user.name || "makimav";
@@ -982,11 +982,11 @@ window.addEventListener("DOMContentLoaded", async () => {
 <div class="top-section astro-QLFJKSAO">
 <header class="astro-QLFJKSAO">
 <div class="upper astro-BCR4GW6E" style="--color: #d0cdc3;">
-<img class="banners banner astro-BCR4GW6E" id="banner" alt="Banner" loading="lazy" decoding="async" onerror="this.src = '/img/banner.png';">
+<img class="banners banner astro-BCR4GW6E" id="banner">
 </div></header>
 <div class="relative stick astro-DTRUHEB4 astro-IL4YI767">
-<img class="avatars avatar levitate astro-DTRUHEB4 astro-IUSYWDOF" alt="Avatar" id="avatar" loading="lazy" decoding="async" onerror="this.src = '/img/avatar.png';">
-<img class="decoration" id="decoration" onerror="this.src = '/img/1.png';">
+<img class="avatars avatar levitate astro-DTRUHEB4 astro-IUSYWDOF" id="avatar">
+<img class="decoration" id="decoration">
 <div class="flex astro-G3JJ5IRR status levitate astro-DTRUHEB4" style="--justify: flex-end;--align: flex-end;--gap: 0rem;"></div>
 <div class="badge-wrapper badges astro-DTRUHEB4 astro-P646MY2Q" id="badges"></div>
 </div>
