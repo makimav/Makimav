@@ -951,7 +951,7 @@ var user = localStorage.getItem("user") ? JSON.parse(localStorage.getItem("user"
 function render() {
   document.querySelector("#avatar").src = user.avatar;
   document.querySelector("#decoration").src = user.decoration;
-  document.querySelector("#banner").style.backgroundImage = `url("${user.banner}")`;
+  document.querySelector("#banner").src = user.banner;
   document.querySelector("#globalName").innerText = user.globalName;
   document.title = user.globalName;
   document.querySelector("#username").innerText = user.name;
@@ -982,10 +982,10 @@ window.addEventListener("DOMContentLoaded", async () => {
 <div class="top-section astro-QLFJKSAO">
 <header class="astro-QLFJKSAO">
 <div class="upper astro-BCR4GW6E" style="--color: #d0cdc3;">
-<div class="banners banner astro-BCR4GW6E" id="banner"></div>
+<img class="banners banner astro-BCR4GW6E" id="banner" alt="Banner" loading="lazy" decoding="async" onerror="this.src = '/img/banner.png';">
 </div></header>
 <div class="relative stick astro-DTRUHEB4 astro-IL4YI767">
-<img class="avatars avatar levitate astro-DTRUHEB4 astro-IUSYWDOF" alt="Avatar" id="avatar" loading="lazy" decoding="async">
+<img class="avatars avatar levitate astro-DTRUHEB4 astro-IUSYWDOF" alt="Avatar" id="avatar" loading="lazy" decoding="async" onerror="this.src = '/img/avatar.png';">
 <img class="decoration" id="decoration">
 <div class="flex astro-G3JJ5IRR status levitate astro-DTRUHEB4" style="--justify: flex-end;--align: flex-end;--gap: 0rem;"></div>
 <div class="badge-wrapper badges astro-DTRUHEB4 astro-P646MY2Q" id="badges"></div>
